@@ -9,7 +9,35 @@
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-    <div class="container home-page"></div>
+    <div id="map"></div>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        const { latitude, longitude } = obj;
+        var currentLocation = { lat: latitude, lng: longitude };
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 14,
+          center: currentLocation,
+        });
+        var marker = new google.maps.Marker({
+          position: currentLocation,
+          map: map,
+        });
+      }
+      let obj = {};
+      navigator.geolocation.getCurrentPosition(show);
+      function show(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        obj.latitude = latitude;
+        obj.longitude = longitude;
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_2tf19OiLby7_m06kUpjQ_ivdhR3JYUM&callback=initMap"
+    ></script>
     <script src="js/index.js" async defer></script>
   </body>
 </html>
