@@ -7,40 +7,50 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style/style.css" />
+    <script
+      src="https://kit.fontawesome.com/f4d5e9b51c.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <h1 class="title">
       Store Locator
     </h1>
+    <div class="search-container">
+      <div class="search">
+        <input type="text" id="search-input" placeholder="Enter zip" />
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </div>
+    </div>
     <div id="map"></div>
-    <script>
-      // Initialize and add the map
-      function initMap() {
-        const { latitude, longitude } = obj;
-        var currentLocation = { lat: latitude, lng: longitude };
-        var map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 14,
-          center: currentLocation,
-        });
-        var marker = new google.maps.Marker({
-          position: currentLocation,
-          map: map,
-        });
-      }
-      let obj = {};
-      navigator.geolocation.getCurrentPosition(show);
-      function show(position) {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        obj.latitude = latitude;
-        obj.longitude = longitude;
-      }
-    </script>
     <script
       async
       defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_2tf19OiLby7_m06kUpjQ_ivdhR3JYUM&callback=initMap"
     ></script>
+    <script>
+      let map;
+      function initMap() {
+        // function show(position) {
+        //   const latitude = position.coords.latitude;
+        //   const longitude = position.coords.longitude;
+        //   obj.latitude = latitude;
+        //   obj.longitude = longitude;
+        // }
+        // navigator.geolocation.getCurrentPosition(show);
+        // let obj = {};
+        // const { latitude, longitude } = obj;
+        let currentLocation = { lat: 34.9200801, lng: 135.6858162 };
+        map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 14,
+          center: currentLocation,
+        });
+        let marker = new google.maps.Marker({
+          position: currentLocation,
+          map: map,
+        });
+      }
+    </script>
     <script src="js/index.js" async defer></script>
   </body>
 </html>

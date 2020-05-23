@@ -19,3 +19,43 @@ body {
   text-transform: uppercase;
   font-weight: bold;
 }
+
+.search-container {
+  position: absolute;
+  z-index: 2;
+  top: 300px;
+  left: 100px;
+}
+
+.search {
+  width: 450px;
+  height: 80px;
+  background-color: #454e53;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 0 30px;
+  font-size: 30px;
+}
+
+#search-input {
+  background-color: transparent;
+  border: 0px;
+  width: 300px;
+  height: 40px;
+  color: white;
+  font-size: 40px;
+  font-weight: 100;
+  outline: none;
+}
+
+#search-input::placeholder {
+  color: white;
+  font-weight: 100;
+}
+
+.serach i {
+  cursor: pointer;
+}
