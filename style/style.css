@@ -11,9 +11,9 @@ body {
 
 .title {
   position: absolute;
-  font-size: 88px;
+  font-size: 70px;
   z-index: 1;
-  top: 100px;
+  top: 50px;
   left: 100px;
   color: #333333;
   text-transform: uppercase;
@@ -23,13 +23,13 @@ body {
 .search-container {
   position: absolute;
   z-index: 2;
-  top: 300px;
+  top: 220px;
   left: 100px;
 }
 
 .search {
-  width: 450px;
-  height: 80px;
+  width: 320px;
+  height: 60px;
   background-color: #454e53;
   border-radius: 50px;
   display: flex;
@@ -43,10 +43,10 @@ body {
 #search-input {
   background-color: transparent;
   border: 0px;
-  width: 300px;
+  width: 310px;
   height: 40px;
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 100;
   outline: none;
 }
@@ -56,6 +56,13 @@ body {
   font-weight: 100;
 }
 
-.serach i {
-  cursor: pointer;
+.stores-list-container {
+  background-color: white;
+  position: absolute;
+  top: 300px;
+  left: 100px;
+  width: 380px;
+  height: 600px;
+  border-radius: 35px;
+  z-index: 1;
 }
