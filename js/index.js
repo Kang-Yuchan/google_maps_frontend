@@ -1,4 +1,6 @@
 let map;
+let infoWindow;
+let markers = [];
 
 function initMap() {
   let kyoto = {
@@ -9,6 +11,7 @@ function initMap() {
     zoom: 10,
     center: kyoto,
   });
+  infoWindow = new google.maps.InfoWindow();
   getStores();
 }
 
@@ -29,22 +32,55 @@ const getStores = () => {
 
 const searchLocationNear = (stores) => {
   let bounds = new google.maps.LatLngBounds();
-  stores.forEach((store, index) => {
+  stores.forEach((store) => {
     let latlng = new google.maps.LatLng(
       store.location.coordinates[0],
       store.location.coordinates[1]
     );
     let name = store.storeName;
     let address = store.addressLines[0];
+    let openStatusText = store.openStatusText;
+    let phone = store.phoneNumber;
     bounds.extend(latlng);
-    createMarker(latlng, name, address);
+    createMarker(latlng, name, address, phone, openStatusText);
   });
   map.fitBounds(bounds);
 };
 
-const createMarker = (latlng, name, address) => {
+const createMarker = (latlng, name, address, phone, openStatusText) => {
+  let html = `
+    <div class="store-info-window">
+      <div class="store-info-name">
+        ${name}
+      </div>
+      <div class="store-info-open-status">
+        ${openStatusText}
+      </div>
+      <div class="store-info-address">
+        <div class="icon">
+          <i class="fas fa-location-arrow"></i>
+        </div>
+        <span>
+          ${address}
+        </span>
+      </div>
+      <div class="store-info-phone">
+        <div class="icon">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <span>
+         <a href="tel:${phone ? phone : "-"}">${phone ? phone : "-"}</a> 
+        </span>
+      </div>
+    </div>
+  `;
   let marker = new google.maps.Marker({
     position: latlng,
-    map: map,
+    map: map
   });
+  google.maps.event.addListener(marker, 'click', () => {
+    infoWindow.setContent(html);
+    infoWindow.open(map, marker);
+  });
+  markers.push(marker);
 };
