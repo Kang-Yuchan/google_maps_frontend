@@ -1,34 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>google maps</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style/style.css" />
-    <script
-      src="https://kit.fontawesome.com/f4d5e9b51c.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <h1 class="title">
-      Store Locator
-    </h1>
-    <div class="search-container">
-      <div class="search">
-        <input type="text" id="search-input" placeholder="Enter zip" />
-        <i class="fas fa-search" aria-hidden="true"></i>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>google maps</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style/style.css" />
+  <script src="https://kit.fontawesome.com/f4d5e9b51c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <h1 class="title">
+    Store Locator
+  </h1>
+  <div class="search-container">
+    <div class="search">
+      <input type="text" id="search-input" placeholder="Enter zip" />
+      <i class="fas fa-search" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div class="stores-list-container">
+    <div class="stores-list">
+      <div class="store-container">
+        <div class="store-container-background">
+          <div class="store-info-container">
+            <div class="store-address">
+              <span>abcdef ss</span>
+              <span>abcdef ss</span>
+            </div>
+            <div class="store-phone-number">
+              222222
+            </div>
+          </div>
+          <div class="store-number-container">
+            <div class="store-number">
+              1
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="stores-list-container"></div>
-    <div id="map"></div>
-    <script src="js/index.js" async defer></script>
-    <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_2tf19OiLby7_m06kUpjQ_ivdhR3JYUM&callback=initMap"
-    ></script>
-  </body>
+  </div>
+  <div id="map"></div>
+  <script src="js/index.js" async defer></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_2tf19OiLby7_m06kUpjQ_ivdhR3JYUM&callback=initMap"></script>
+</body>
+
 </html>
