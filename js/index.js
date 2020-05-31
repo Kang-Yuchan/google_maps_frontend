@@ -26,9 +26,37 @@ const getStores = () => {
       }
     })
     .then((resData) => {
-      return searchLocationNear(resData)
+      searchLocationNear(resData)
+      setStoresList(resData)
     });
 };
+
+const setStoresList = stores => {
+  let storesHtml = '';
+  stores.forEach((store, index) => {
+    storesHtml += `
+    <div class="store-container">
+      <div class="store-container-background">
+        <div class="store-info-container">
+          <div class="store-address">
+            <span>${store.addressLines[0]}</span>
+            <span>${store.addressLines[1]}</span>
+          </div>
+          <div class="store-phone-number">
+            ${store.phoneNumber ? store.phoneNumber : "-"}
+          </div>
+        </div>
+        <div class="store-number-container">
+          <div class="store-number">
+            ${index + 1}
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
+  })
+  document.querySelector('.stores-list').innerHTML = storesHtml;
+}
 
 const searchLocationNear = (stores) => {
   let bounds = new google.maps.LatLngBounds();

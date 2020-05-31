@@ -37,8 +37,8 @@ body {
   align-items: center;
   justify-content: space-between;
   color: white;
-  padding: 0 30px;
-  font-size: 30px;
+  padding: 0 35px 0 30px;
+  font-size: 25px;
 }
 
 #search-input {
@@ -63,10 +63,11 @@ body {
   top: 300px;
   left: 100px;
   width: 380px;
-  height: 600px;
+  height: 570px;
   border-radius: 35px;
   z-index: 1;
   display: flex;
+  padding-bottom: 20px;
 }
 
 .store-info-window {
@@ -117,11 +118,19 @@ body {
 .stores-list {
   flex-grow: 1;
   padding: 0 20px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.stores-list::-webkit-scrollbar {
+  display: none;
 }
 
 .store-container {
   border-bottom: 1px solid #979797;
   display: flex;
+  overflow: hidden;
 }
 
 .store-info-container {
