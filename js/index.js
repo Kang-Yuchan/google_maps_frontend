@@ -28,8 +28,18 @@ const getStores = () => {
     .then((resData) => {
       searchLocationNear(resData)
       setStoresList(resData)
+      setOnClickListener()
     });
 };
+
+const setOnClickListener = () => {
+  let storeElements = document.querySelectorAll('.store-container');
+  storeElements.forEach((elem, index) => {
+    elem.addEventListener('click', () => {
+      google.maps.event.trigger(markers[index], 'click');
+    })
+  })
+}
 
 const setStoresList = stores => {
   let storesHtml = '';
