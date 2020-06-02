@@ -72,8 +72,8 @@ const searchLocationNear = (stores) => {
   let bounds = new google.maps.LatLngBounds();
   stores.forEach((store) => {
     let latlng = new google.maps.LatLng(
-      store.location.coordinates[0],
-      store.location.coordinates[1]
+      store.location.coordinates[1],
+      store.location.coordinates[0]
     );
     let name = store.storeName;
     let address = store.addressLines[0];
